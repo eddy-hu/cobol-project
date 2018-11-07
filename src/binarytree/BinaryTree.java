@@ -1,5 +1,6 @@
 package binarytree;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class BinaryTree {
@@ -175,6 +176,39 @@ public class BinaryTree {
 			}
 		}
 	}
+	
+	/**
+	 * createBinaryTreeByPreorder from a list
+	 */
+	
+	public void createBinaryTreeByPreorder(ArrayList<String> data) {
+		createBinaryTree( data.size(), data);
+	}
+
+	private TreeNode createBinaryTree(int size, ArrayList<String> data) {
+		if(data.size()==0) {
+			return null;
+		}
+		String d = data.get(0);
+		TreeNode node;
+		int index = size - data.size();
+		if(d.equals("#")) {
+			node = null;
+			data.remove(0);
+			return node;
+		}
+		node = new TreeNode(index,d);
+        if(index == 0) {
+        	// create root node
+        	root = node;
+        }
+        data.remove(0);
+        node.leftChild = createBinaryTree(++index,data);
+        node.rightChild = createBinaryTree(++index,data);
+        
+		return node;
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -186,7 +220,19 @@ public class BinaryTree {
 
 		// binaryTree.preOrder();
 		// binaryTree.inOrder();
-		binaryTree.nonRecursionPreOrder(binaryTree.root);
+		//binaryTree.nonRecursionPreOrder(binaryTree.root);
+		ArrayList<String> list  = new ArrayList<String>();
+		String[] testData = new String [] {"A","B","D","#","#","E","#","#","C","#","F","#","#"};
+		for(String s : testData) {
+			list.add(s);
+		}
+		binaryTree.createBinaryTreeByPreorder(list);
+		binaryTree.preOrder(binaryTree.root);
 	}
 
 }
+
+
+
+
+
