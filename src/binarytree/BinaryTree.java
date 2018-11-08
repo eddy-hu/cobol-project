@@ -36,6 +36,15 @@ public class BinaryTree {
 		private String data;
 		private TreeNode leftChild;
 		private TreeNode rightChild;
+		private TreeNode parent;
+
+		public TreeNode getParent() {
+			return parent;
+		}
+
+		public void setParent(TreeNode parent) {
+			this.parent = parent;
+		}
 
 		public TreeNode(int index, String data) {
 			this.index = index;
@@ -209,6 +218,7 @@ public class BinaryTree {
 		return node;
 		
 	}
+	
 
 	public static void main(String[] args) {
 
