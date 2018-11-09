@@ -143,7 +143,7 @@ public class SearchBinaryTree {
 		}else {
 			while(node.leftChild!=null) {
 				node= node.leftChild;
-				
+				return node;
 			}
 		}
 		return null;
@@ -172,7 +172,7 @@ public class SearchBinaryTree {
 		}
 		s.innerOrder(s.root);
 		try {
-			s.deleteNode(44);
+			s.deleteNode(50);
 			s.innerOrder(s.root);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
