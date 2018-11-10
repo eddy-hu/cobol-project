@@ -116,25 +116,54 @@ public class Graph {
     
 	//Breadth-First-Search
 	private void dreadthFirstSearch(int i) {
-		int u, w;
+		int vertex, nextNode;
 		LinkedList<Integer> queue = new LinkedList<Integer> ();
 		System.out.println("Found "+i);
 		isVisited[i] = true;
 		queue.add(i);// add v0 to queue;
 		while(!queue.isEmpty()) {
-			u = queue.removeFirst();
-			w = getFirstConnectedNode(u);
-			while(w!=-1) {
-				if(!isVisited[w]) {
-					System.out.println("Found "+w);
-					isVisited[w] = true;
-					queue.add(w);
+			vertex = queue.removeFirst();
+			nextNode = getFirstConnectedNode(vertex);
+			while(nextNode!=-1) {
+				if(!isVisited[nextNode]) {
+					System.out.println("Found "+nextNode);
+					isVisited[nextNode] = true;
+					queue.add(nextNode);
 				}
-				w = getNextNode(u,w);
+				nextNode = getNextNode(vertex,nextNode);
 			}
 		}
-		
-		
+	}
+	
+	// Prim's algorithm 
+	public void prim() {
+		int[] minCost = new int[vertexSize];//minimum cost vertices array
+		int[] vertexWeight = new int[vertexSize];//vertices weight array
+		int min, minId,sum =0;
+		for(int i=1;i<vertexSize;i++) {
+			minCost[i] = matrix[0][i];
+			
+		}
+		for(int i=1;i<vertexSize;i++) {
+			min = MAX_WEIGHT;
+			minId =0;
+			for(int j =1; j<vertexSize;j++) {
+				if(minCost[j]<min && minCost[j]>0 ) {
+					min = minCost[j];
+					minId =j;
+				}
+			}
+			System.out.println("Vertex :"+vertexWeight[minId]+ " Weight:"+min);
+			sum+=min;
+			minCost[minId]=0;
+			for(int j =1; j<vertexSize;j++) {
+				if(minCost[j]!=0&&matrix[minId][j]<minCost[j] ) {
+					minCost[j]=matrix[minId][j];
+					vertexWeight[j] =minId;
+				}
+			}
+		}
+		System.out.println("Minimum spanning tree total weight:"+sum);
 	}
 	public int getVertexSize() {
 		return vertexSize;
@@ -192,7 +221,8 @@ public class Graph {
 		//System.out.println(graph.getWeight(0,4));
 		
 		//graph.depthFirstSearch();
-		graph.breadthFirstSearch();
+		//graph.breadthFirstSearch();
+		graph.prim();
 
 		
 
