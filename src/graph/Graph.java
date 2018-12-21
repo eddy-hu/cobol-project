@@ -139,27 +139,27 @@ public class Graph {
 	public void prim() {
 		int[] minCost = new int[vertexSize];//minimum cost vertices array
 		int[] vertexWeight = new int[vertexSize];//vertices weight array
-		int min, minId,sum =0;
+		int min, minIndex,sum =0;
 		for(int i=1;i<vertexSize;i++) {
 			minCost[i] = matrix[0][i];
 			
 		}
 		for(int i=1;i<vertexSize;i++) {
 			min = MAX_WEIGHT;
-			minId =0;
+			minIndex =0;
 			for(int j =1; j<vertexSize;j++) {
 				if(minCost[j]<min && minCost[j]>0 ) {
 					min = minCost[j];
-					minId =j;
+					minIndex =j;
 				}
 			}
-			System.out.println("Vertex :"+vertexWeight[minId]+ " Weight:"+min);
+			System.out.println("Vertex :"+vertexWeight[minIndex]+ " Weight:"+min);
 			sum+=min;
-			minCost[minId]=0;
+			minCost[minIndex]=0;
 			for(int j =1; j<vertexSize;j++) {
-				if(minCost[j]!=0&&matrix[minId][j]<minCost[j] ) {
-					minCost[j]=matrix[minId][j];
-					vertexWeight[j] =minId;
+				if(minCost[j]!=0&&matrix[minIndex][j]<minCost[j] ) {
+					minCost[j]=matrix[minIndex][j];
+					vertexWeight[j] =minIndex;
 				}
 			}
 		}
