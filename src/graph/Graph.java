@@ -108,14 +108,14 @@ public class Graph {
 		isVisited = new boolean[vertexSize];
 		for(int i=0;i<vertexSize;i++) {
 				if(!isVisited[i]) {
-					dreadthFirstSearch(i);
+					breadthFirstSearch(i);
 				}
 		}
 		isVisited = new boolean[vertexSize];
 	}
     
 	//Breadth-First-Search
-	private void dreadthFirstSearch(int i) {
+	private void breadthFirstSearch(int i) {
 		int vertex, nextNode;
 		LinkedList<Integer> queue = new LinkedList<Integer> ();
 		System.out.println("Found "+i);
@@ -168,7 +168,7 @@ public class Graph {
 	public int getVertexSize() {
 		return vertexSize;
 	}
-
+   
 	public void setVertexSize(int vertexSize) {
 		this.vertexSize = vertexSize;
 	}
