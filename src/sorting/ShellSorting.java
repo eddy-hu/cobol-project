@@ -1,6 +1,6 @@
 package sorting;
 
-public class HeerSorting {
+public class ShellSorting {
 
 	public static void main(String[] args) {
 		sort(new int[] {3,56,2,46,74,23,745,5,4,0,66});

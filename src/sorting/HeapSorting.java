@@ -27,10 +27,7 @@ public class HeapSorting {
 			int half= (arr.length-1)/2;
 			for(int i=half;i>=0;i--) {
 				maxHeap(arr,arr.length,i);
-				
 			}
-			
-			
 		}
 
 		private static void maxHeap(int[] arr, int length, int i) {
