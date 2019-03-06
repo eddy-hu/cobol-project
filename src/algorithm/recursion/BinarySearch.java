@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.recursion;
 
 public class BinarySearch {
 	
@@ -42,7 +42,7 @@ public class BinarySearch {
 
 
 	public static void main(String[] args) {
-		
+			
 		BinarySearch binarySearch = new BinarySearch();
 		int[] array = {-1,22,55,44,111,1055,1678};
 		System.out.println(binarySearch.binarySearch(44, array, 0, array.length-1));
