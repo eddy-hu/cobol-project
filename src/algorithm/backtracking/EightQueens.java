@@ -19,6 +19,11 @@ public class EightQueens {
 			if(cols[i]-d>0) {
 				rows[cols[i]-d] =true;
 			}
+			//opposite
+			if(cols[i]+d<=(QUEEN_NUM-1)) {
+				
+			}
+			
 		}
 	}
 	
